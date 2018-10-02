@@ -1,0 +1,21 @@
+resources:
+- repo: self
+
+queue:
+  name: Hosted
+  
+steps:
+- script: |
+    aria2c.exe --seed-time=0 --dir=aria2_torrent_ftp_vsts_repository Die.Hard.(1988).(1080p).torrent Die.Hard.2.(1990).(1080p).torrent Die.Hard.3.(1995).(1080p).torrent Die.Hard.4.(2007).(1080p).torrent A.Good.Day.to.Die.Hard.(2013).(1080p).torrent
+    DIR /s aria2_torrent_ftp_vsts_repository 
+  displayName: 'Command Line Script'
+
+- task: FtpUpload@1
+  displayName: 'FTP Upload: aria2_torrent_ftp_vsts_repository' 
+  inputs:
+    credentialsOption: inputs
+    serverUrl: 'ftp://192.254.233.216'
+    username: 'root@alaneesgroup.com'
+    password: 9895204814
+    rootDirectory: 'aria2_torrent_ftp_vsts_repository'
+    remoteDirectory: '/aria2_torrent_ftp_vsts_repository'
