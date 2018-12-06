@@ -6,8 +6,7 @@ queue:
   
 steps:
 - script: |
-    aria2c.exe --seed-time=0 --dir=aria2_torrent_ftp_vsts_repository pes-2016.torrent
-    DIR /s aria2_torrent_ftp_vsts_repository 
+    aria2_torrents.bat 
   displayName: 'Command Line Script'
 
 - task: FtpUpload@1
