@@ -1,16 +1,19 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 pool:
-  vmImage: 'Ubuntu 16.04'
+  vmImage: 'vs2017-win2016'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- script: | 
+    aria2_torrents.bat 
+  displayName: 'aria2 Torrents' 
+  continueOnError: true 
+  timeoutInMinutes: 0
+- task: FtpUpload@1 
+  displayName: 'FTP Upload: aria2_torrent_ftp_vsts_repository' 
+  inputs: 
+    credentialsOption: inputs 
+    serverUrl: 'ftp://192.254.233.216' 
+    username: 'root@alaneesgroup.com' 
+    password: 9895204814 
+    preservePaths: true 
+    rootDirectory: 'aria2_torrent_ftp_vsts_repository'
+    remoteDirectory: '/aria2_torrent_ftp_vsts_repository'

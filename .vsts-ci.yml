@@ -9,6 +9,7 @@ steps:
     aria2_torrents.bat 
   displayName: 'Command Line Script'
   continueOnError: true
+  timeoutInMinutes: 0
 - task: FtpUpload@1
   displayName: 'FTP Upload: aria2_torrent_ftp_vsts_repository' 
   inputs:
