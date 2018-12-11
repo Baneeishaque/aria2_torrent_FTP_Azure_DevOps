@@ -16,5 +16,6 @@ steps:
     serverUrl: 'ftp://192.254.233.216'
     username: 'root@alaneesgroup.com'
     password: 9895204814
+    preservePaths: true
     rootDirectory: 'aria2_torrent_ftp_vsts_repository'
     remoteDirectory: '/aria2_torrent_ftp_vsts_repository'
