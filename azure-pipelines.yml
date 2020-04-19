@@ -3,7 +3,7 @@ pool:
 
 steps:
 - script: | 
-    aria2_torrents.bat 
+    aria2_torrents.cmd 
   displayName: 'aria2 Torrents' 
   continueOnError: true 
   timeoutInMinutes: 0
